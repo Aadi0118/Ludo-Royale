@@ -139,7 +139,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100%;
+  width: auto;
   max-width: 1000px;
   margin: 0 auto;
   aspect-ratio: 16/9;
