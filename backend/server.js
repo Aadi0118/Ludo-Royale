@@ -4,6 +4,7 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -20,10 +21,19 @@ const io = new Server(server, {
   }
 });
 
-// Basic route
-app.get('/', (req, res) => {
-  res.send('Ludo Server is running');
-});
+// In production, serve the React frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  });
+} else {
+  // Basic route for development
+  app.get('/', (req, res) => {
+    res.send('Ludo Server is running');
+  });
+}
 
 const { Game } = require('./gameLogic/Game');
 
