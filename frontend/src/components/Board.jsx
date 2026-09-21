@@ -314,7 +314,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
       </div>
       <style>{`
         .ludo-board-wrapper {
-          padding: 1.5rem;
+          padding: 0;
           display: inline-block;
           margin: 0 auto;
           background: #fff;
