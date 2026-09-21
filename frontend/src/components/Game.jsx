@@ -173,20 +173,20 @@ const Game = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '2rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '1000px', marginBottom: '2rem' }}>
-        <h2>Room: {gameState.roomId}</h2>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '10px', overflowX: 'hidden' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '1000px', marginBottom: '1rem', gap: '10px' }}>
+        <h2 style={{ fontSize: '1.2rem', margin: 0 }}>Room: {gameState.roomId}</h2>
         
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
           <VoiceChat socket={socket} roomId={roomId} gameState={gameState} />
 
           {gameState.state === 'WAITING' && isCreator && (
-            <button className="btn" onClick={handleStartGame} style={{ background: '#22c55e' }}>
+            <button className="btn" onClick={handleStartGame} style={{ background: '#22c55e', padding: '6px 12px', fontSize: '0.9rem' }}>
               <Play size={16} style={{ verticalAlign: 'middle', marginRight: '0.5rem' }} />
-              Start Game
+              Start
             </button>
           )}
-          <button className="btn" style={{ background: '#ef4444', padding: '8px 16px' }} onClick={handleLeave}>
+          <button className="btn" style={{ background: '#ef4444', padding: '6px 12px', fontSize: '0.9rem' }} onClick={handleLeave}>
             <LogOut size={16} /> Leave
           </button>
         </div>

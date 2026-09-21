@@ -42,10 +42,10 @@ const Dice = ({ value, rolling }) => {
       {renderDots()}
       <style>{`
         .dice {
-          width: 80px;
-          height: 80px;
+          width: 100%;
+          height: 100%;
           background: linear-gradient(135deg, #ffffff, #e2e8f0);
-          border-radius: 16px;
+          border-radius: 20%;
           box-shadow: inset 0 5px 15px rgba(255,255,255,0.8),
                       inset 0 -5px 15px rgba(0,0,0,0.1),
                       0 10px 20px rgba(0,0,0,0.2);
@@ -68,8 +68,8 @@ const Dice = ({ value, rolling }) => {
         }
 
         .dot {
-          width: 16px;
-          height: 16px;
+          width: 20%;
+          height: 20%;
           background-color: #1e293b;
           border-radius: 50%;
           position: absolute;
@@ -77,12 +77,12 @@ const Dice = ({ value, rolling }) => {
         }
 
         .center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .top-left { top: 12px; left: 12px; }
-        .top-right { top: 12px; right: 12px; }
-        .bottom-left { bottom: 12px; left: 12px; }
-        .bottom-right { bottom: 12px; right: 12px; }
-        .middle-left { top: 50%; left: 12px; transform: translateY(-50%); }
-        .middle-right { top: 50%; right: 12px; transform: translateY(-50%); }
+        .top-left { top: 15%; left: 15%; }
+        .top-right { top: 15%; right: 15%; }
+        .bottom-left { bottom: 15%; left: 15%; }
+        .bottom-right { bottom: 15%; right: 15%; }
+        .middle-left { top: 50%; left: 15%; transform: translateY(-50%); }
+        .middle-right { top: 50%; right: 15%; transform: translateY(-50%); }
       `}</style>
     </div>
   );

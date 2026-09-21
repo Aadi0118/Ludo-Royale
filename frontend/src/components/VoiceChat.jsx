@@ -26,14 +26,12 @@ const VoiceChat = ({ socket, roomId, gameState }) => {
 
   return (
     <div className="voice-chat-container" style={{ 
-      position: 'absolute', 
-      bottom: '20px', 
-      right: '20px', 
+      position: 'relative',
       display: 'flex', 
       gap: '10px', 
       alignItems: 'center', 
       background: 'rgba(255,255,255,0.9)', 
-      padding: '10px 15px', 
+      padding: '5px 10px', 
       borderRadius: '24px', 
       boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
       zIndex: 100
