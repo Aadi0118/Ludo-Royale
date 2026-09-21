@@ -173,7 +173,7 @@ const Game = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '10px', overflowX: 'hidden' }}>
+    <div className="game-root-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', overflowX: 'hidden' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '1000px', marginBottom: '1rem', gap: '10px' }}>
         <h2 style={{ fontSize: '1.2rem', margin: 0 }}>Room: {gameState.roomId}</h2>
         
