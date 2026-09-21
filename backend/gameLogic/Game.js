@@ -137,7 +137,13 @@ class Game {
       this.sixCount++;
       if (this.sixCount === 3) {
         // Rolled three 6s, skip turn
-        return { success: true, diceValue: 6, skipTurn: true, message: 'Rolled three 6s. Turn skipped.' };
+        return { 
+          success: true, 
+          diceValue: 6, 
+          noMoves: true, 
+          getsAnotherTurn: false, 
+          message: 'Rolled three 6s! Turn skipped.' 
+        };
       }
     } else {
       this.sixCount = 0;
