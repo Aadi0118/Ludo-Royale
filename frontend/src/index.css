@@ -201,3 +201,65 @@ body {
   justify-content: center;
   background: #fff;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  :root {
+    --cell-size: min(6.3vw, 35px);
+  }
+
+  .game-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    aspect-ratio: auto !important;
+    margin-top: 20px;
+  }
+
+  .ludo-board {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin: 0 auto;
+    transform: scale(0.95);
+  }
+
+  .player-panel {
+    position: relative !important;
+    width: 100% !important;
+    height: 100px !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    padding: 10px !important;
+  }
+  
+  .player-name {
+    top: -25px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .player-panel.top-left { grid-column: 1; grid-row: 1; }
+  .player-panel.top-right { grid-column: 2; grid-row: 1; }
+  .player-panel.bottom-left { grid-column: 1; grid-row: 3; }
+  .player-panel.bottom-right { grid-column: 2; grid-row: 3; }
+
+  .avatar-box, .dice-container-box {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .app-title {
+    font-size: 2rem !important;
+  }
+  
+  .app-header {
+    padding: 1rem 0 !important;
+  }
+}
