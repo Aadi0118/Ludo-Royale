@@ -263,8 +263,8 @@ body {
     margin: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    width: 0 !important;
-    max-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     border: none !important;
     background: #fff !important;
     display: block !important;
