@@ -323,8 +323,8 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
         }
         .ludo-board {
           display: grid;
-          grid-template-columns: repeat(15, min(4vw, 35px));
-          grid-template-rows: repeat(15, min(4vw, 35px));
+          grid-template-columns: repeat(15, var(--cell-size));
+          grid-template-rows: repeat(15, var(--cell-size));
           border: 1px solid #ccc;
           background: white;
         }
@@ -390,7 +390,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
           width: 100%;
           height: 100%;
           border-style: solid;
-          border-width: calc(min(4vw, 35px) * 1.5); /* Half of 3x3 width */
+          border-width: calc(var(--cell-size) * 1.5); /* Half of 3x3 width */
           border-color: var(--ludo-red) var(--ludo-green) var(--ludo-yellow) var(--ludo-blue);
           box-sizing: border-box;
         }
