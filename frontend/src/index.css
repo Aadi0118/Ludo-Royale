@@ -204,15 +204,6 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .game-root-wrapper {
-    padding: 0 !important;
-  }
-
-  /* Make sure the header still has some padding since root padding is gone */
-  .game-root-wrapper > div:first-child {
-    padding: 10px;
-  }
-
   :root {
     --cell-size: 6.666vw;
   }
@@ -223,10 +214,10 @@ body {
     grid-template-rows: auto auto auto;
     gap: 15px;
     height: auto;
-    width: 100vw;
+    width: 100%;
     padding: 0 10px;
     aspect-ratio: auto !important;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .board-container {
@@ -235,7 +226,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100vw;
-    margin: 0 -10px; /* offset the game-container padding */
+    margin-left: calc(-50vw + 50%);
     overflow: hidden;
   }
   
@@ -244,15 +235,15 @@ body {
     border-radius: 0 !important;
     box-shadow: none !important;
     width: 100vw !important;
-    height: 100vw !important;
   }
 
   .ludo-board {
     grid-column: 1 / span 2;
     grid-row: 2;
-    margin: 0;
-    width: 100vw !important;
-    height: 100vw !important;
+    margin: 0 auto;
+    justify-self: center;
+    width: 100vw;
+    height: 100vw;
     max-width: 100vw;
     transform: none !important;
     display: grid !important;
