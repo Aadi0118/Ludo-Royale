@@ -219,7 +219,7 @@ body {
     gap: 10px;
     height: auto;
     width: 100%;
-    padding: 0 8px;
+    padding: 0 !important;
     aspect-ratio: auto !important;
     margin-top: 10px;
   }
@@ -227,21 +227,23 @@ body {
   .board-container {
     grid-column: 1 / -1;
     grid-row: 2;
-    display: flex;
-    justify-content: center;
+    display: block;
     width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    margin-left: 0;
+    padding: 0;
     overflow: visible;
   }
   
   .ludo-board-wrapper {
     padding: 0 !important;
+    margin: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     width: 100vw !important;
     max-width: 100vw !important;
     border: none !important;
     background: #fff !important;
+    display: block !important;
   }
 
   .ludo-board {
