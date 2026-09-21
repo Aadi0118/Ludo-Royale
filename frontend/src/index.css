@@ -254,19 +254,20 @@ body {
   .player-panel {
     position: relative !important;
     width: 100% !important;
-    height: 100px !important;
+    height: 70px !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
     bottom: auto !important;
     flex-direction: row !important;
     justify-content: space-around !important;
-    padding: 10px !important;
+    padding: 5px !important;
+    border-width: 2px !important;
   }
   
   .player-name {
-    top: -25px !important;
-    font-size: 0.9rem !important;
+    top: -20px !important;
+    font-size: 0.8rem !important;
   }
 
   .player-panel.top-left { grid-column: 1; grid-row: 1; }
@@ -275,8 +276,14 @@ body {
   .player-panel.bottom-right { grid-column: 2; grid-row: 3; }
 
   .avatar-box, .dice-container-box {
-    width: 50px !important;
-    height: 50px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-width: 2px !important;
+  }
+
+  .avatar-box .pawn {
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .app-title {
