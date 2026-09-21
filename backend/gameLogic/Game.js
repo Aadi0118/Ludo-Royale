@@ -44,10 +44,34 @@ class Game {
         { id: `${color}-0`, color, position: -1 }, // -1 means in base
         { id: `${color}-1`, color, position: -1 },
         { id: `${color}-2`, color, position: -1 },
-        { id: `${color}-3`, color, position: -1 },
+        { id: `${color}-3`, color, position: -1 }
       ];
     });
     return tokens;
+  }
+
+  static rehydrate(dbGame) {
+    const game = new Game(dbGame.roomId);
+    game.players = dbGame.players || [];
+    game.turnIndex = dbGame.turnIndex || 0;
+    game.state = dbGame.state || 'WAITING';
+    game.diceValue = dbGame.diceValue || 0;
+    
+    // Convert Mongoose mixed type to raw JS object if necessary
+    if (dbGame.tokens) {
+      game.tokens = JSON.parse(JSON.stringify(dbGame.tokens));
+    } else {
+      game.tokens = game.initializeTokens();
+    }
+    
+    game.hasRolledDice = dbGame.hasRolledDice || false;
+    game.sixCount = dbGame.sixCount || 0;
+    
+    if (dbGame.winner) {
+      game.winner = JSON.parse(JSON.stringify(dbGame.winner));
+    }
+    
+    return game;
   }
 
   addPlayer(player) {
