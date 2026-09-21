@@ -205,7 +205,16 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   :root {
-    --cell-size: 6.666vw;
+    --cell-size: calc(100vw / 15);
+  }
+
+  .game-root {
+    padding: 10px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .game-container {
@@ -215,9 +224,9 @@ body {
     gap: 15px;
     height: auto;
     width: 100%;
-    padding: 0 10px;
+    padding: 0;
     aspect-ratio: auto !important;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .board-container {
@@ -225,16 +234,14 @@ body {
     grid-row: 2;
     display: flex;
     justify-content: center;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    overflow: hidden;
+    width: 100%;
   }
   
   .ludo-board-wrapper {
     padding: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    width: 100vw !important;
+    width: 100% !important;
   }
 
   .ludo-board {
