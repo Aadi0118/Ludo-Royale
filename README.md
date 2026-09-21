@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" alt="Rolling Dice Animation" width="150"/>
+  <h2>🔴 🟢 <img src="https://media.giphy.com/media/l4hLAq7N67R5b8rO8/giphy.gif" alt="Rolling Dice Animation" width="80" style="vertical-align: middle; margin: 0 15px;"/> 🟡 🔵</h2>
   <h1>🎲 Ludo Royale</h1>
   <p><strong>A sleek, modern, real-time multiplayer Ludo game built with React, Node.js, and WebRTC Voice Chat!</strong></p>
 
