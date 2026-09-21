@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ludo_board.svg/512px-Ludo_board.svg.png" alt="Ludo Royale Banner" width="200"/>
+  <img src="https://media.tenor.com/pZqf81Gq8WAAAAAC/dice-roll.gif" alt="Ludo Royale Banner Animation" width="150"/>
   <h1>🎲 Ludo Royale</h1>
   <p><strong>A sleek, modern, real-time multiplayer Ludo game built with React, Node.js, and WebRTC Voice Chat!</strong></p>
 
