@@ -21,6 +21,10 @@ function App() {
           <Route path="/game/:roomId" element={<Game />} />
         </Routes>
       </main>
+
+      <footer style={{ textAlign: 'center', padding: '20px', color: '#a0a0a0', fontSize: '0.9rem', marginTop: 'auto', fontWeight: '500' }}>
+        &copy; {new Date().getFullYear()} Aditya Kumar Sinha. All rights reserved.
+      </footer>
     </div>
   )
 }
