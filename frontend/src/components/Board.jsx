@@ -5,25 +5,25 @@ import Dice from './Dice';
 import { playMoveSound } from '../utils/audio';
 
 const PATH_COORDS = [
-  {r: 6, c: 1}, {r: 6, c: 2}, {r: 6, c: 3}, {r: 6, c: 4}, {r: 6, c: 5},
-  {r: 5, c: 6}, {r: 4, c: 6}, {r: 3, c: 6}, {r: 2, c: 6}, {r: 1, c: 6}, {r: 0, c: 6},
-  {r: 0, c: 7}, {r: 0, c: 8},
-  {r: 1, c: 8}, {r: 2, c: 8}, {r: 3, c: 8}, {r: 4, c: 8}, {r: 5, c: 8},
-  {r: 6, c: 9}, {r: 6, c: 10}, {r: 6, c: 11}, {r: 6, c: 12}, {r: 6, c: 13}, {r: 6, c: 14},
-  {r: 7, c: 14}, {r: 8, c: 14},
-  {r: 8, c: 13}, {r: 8, c: 12}, {r: 8, c: 11}, {r: 8, c: 10}, {r: 8, c: 9},
-  {r: 9, c: 8}, {r: 10, c: 8}, {r: 11, c: 8}, {r: 12, c: 8}, {r: 13, c: 8}, {r: 14, c: 8},
-  {r: 14, c: 7}, {r: 14, c: 6},
-  {r: 13, c: 6}, {r: 12, c: 6}, {r: 11, c: 6}, {r: 10, c: 6}, {r: 9, c: 6},
-  {r: 8, c: 5}, {r: 8, c: 4}, {r: 8, c: 3}, {r: 8, c: 2}, {r: 8, c: 1}, {r: 8, c: 0},
-  {r: 7, c: 0}, {r: 6, c: 0}
+  { r: 6, c: 1 }, { r: 6, c: 2 }, { r: 6, c: 3 }, { r: 6, c: 4 }, { r: 6, c: 5 },
+  { r: 5, c: 6 }, { r: 4, c: 6 }, { r: 3, c: 6 }, { r: 2, c: 6 }, { r: 1, c: 6 }, { r: 0, c: 6 },
+  { r: 0, c: 7 }, { r: 0, c: 8 },
+  { r: 1, c: 8 }, { r: 2, c: 8 }, { r: 3, c: 8 }, { r: 4, c: 8 }, { r: 5, c: 8 },
+  { r: 6, c: 9 }, { r: 6, c: 10 }, { r: 6, c: 11 }, { r: 6, c: 12 }, { r: 6, c: 13 }, { r: 6, c: 14 },
+  { r: 7, c: 14 }, { r: 8, c: 14 },
+  { r: 8, c: 13 }, { r: 8, c: 12 }, { r: 8, c: 11 }, { r: 8, c: 10 }, { r: 8, c: 9 },
+  { r: 9, c: 8 }, { r: 10, c: 8 }, { r: 11, c: 8 }, { r: 12, c: 8 }, { r: 13, c: 8 }, { r: 14, c: 8 },
+  { r: 14, c: 7 }, { r: 14, c: 6 },
+  { r: 13, c: 6 }, { r: 12, c: 6 }, { r: 11, c: 6 }, { r: 10, c: 6 }, { r: 9, c: 6 },
+  { r: 8, c: 5 }, { r: 8, c: 4 }, { r: 8, c: 3 }, { r: 8, c: 2 }, { r: 8, c: 1 }, { r: 8, c: 0 },
+  { r: 7, c: 0 }, { r: 6, c: 0 }
 ];
 
 const HOME_PATHS = {
-  yellow: [{r:7, c:1}, {r:7, c:2}, {r:7, c:3}, {r:7, c:4}, {r:7, c:5}],
-  blue: [{r:1, c:7}, {r:2, c:7}, {r:3, c:7}, {r:4, c:7}, {r:5, c:7}],
-  red: [{r:7, c:13}, {r:7, c:12}, {r:7, c:11}, {r:7, c:10}, {r:7, c:9}],
-  green: [{r:13, c:7}, {r:12, c:7}, {r:11, c:7}, {r:10, c:7}, {r:9, c:7}]
+  yellow: [{ r: 7, c: 1 }, { r: 7, c: 2 }, { r: 7, c: 3 }, { r: 7, c: 4 }, { r: 7, c: 5 }],
+  blue: [{ r: 1, c: 7 }, { r: 2, c: 7 }, { r: 3, c: 7 }, { r: 4, c: 7 }, { r: 5, c: 7 }],
+  red: [{ r: 7, c: 13 }, { r: 7, c: 12 }, { r: 7, c: 11 }, { r: 7, c: 10 }, { r: 7, c: 9 }],
+  green: [{ r: 13, c: 7 }, { r: 12, c: 7 }, { r: 11, c: 7 }, { r: 10, c: 7 }, { r: 9, c: 7 }]
 };
 
 const SAFE_ZONES = [0, 8, 13, 21, 26, 34, 39, 47];
@@ -44,38 +44,38 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
     if (animationData && displayTokens) {
       const { tokenId, color, path, capturedTokens } = animationData;
       let step = 0;
-      
+
       const interval = setInterval(() => {
         if (step < path.length) {
           const currentStep = step;
           // move to path[currentStep]
           playMoveSound();
           setDisplayTokens(prev => {
-             const newTokens = JSON.parse(JSON.stringify(prev)); // Deep copy
-             const tIndex = newTokens[color].findIndex(t => t.id === tokenId);
-             if (tIndex !== -1) {
-                newTokens[color][tIndex].position = path[currentStep];
-             }
-             return newTokens;
+            const newTokens = JSON.parse(JSON.stringify(prev)); // Deep copy
+            const tIndex = newTokens[color].findIndex(t => t.id === tokenId);
+            if (tIndex !== -1) {
+              newTokens[color][tIndex].position = path[currentStep];
+            }
+            return newTokens;
           });
           step++;
         } else {
           // Path finished. Process captures if any.
           if (capturedTokens && capturedTokens.length > 0) {
             setDisplayTokens(prev => {
-               const newTokens = JSON.parse(JSON.stringify(prev));
-               capturedTokens.forEach(cap => {
-                  const cIndex = newTokens[cap.color].findIndex(t => t.id === cap.id);
-                  if (cIndex !== -1) {
-                     newTokens[cap.color][cIndex].position = -1;
-                  }
-               });
-               return newTokens;
+              const newTokens = JSON.parse(JSON.stringify(prev));
+              capturedTokens.forEach(cap => {
+                const cIndex = newTokens[cap.color].findIndex(t => t.id === cap.id);
+                if (cIndex !== -1) {
+                  newTokens[cap.color][cIndex].position = -1;
+                }
+              });
+              return newTokens;
             });
           }
           clearInterval(interval);
           if (onAnimationComplete) {
-             setTimeout(onAnimationComplete, 500);
+            setTimeout(onAnimationComplete, 500);
           }
         }
       }, 300); // 300ms per step
@@ -103,7 +103,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
       let isSafe = SAFE_ZONES.includes(index);
       let isStart = Object.values(START_POSITIONS).includes(index);
       let cellColorClass = '';
-      
+
       if (index === START_POSITIONS.yellow) cellColorClass = 'bg-yellow-400';
       if (index === START_POSITIONS.blue) cellColorClass = 'bg-blue-400';
       if (index === START_POSITIONS.red) cellColorClass = 'bg-red-400';
@@ -159,7 +159,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
         <div key={`base-${base.color}`} className={`base bg-${base.color}-500`} style={{ gridRow: `${base.r} / span 6`, gridColumn: `${base.c} / span 6` }}>
           <div className="base-inner">
             <div className="token-slots">
-              {[0,1,2,3].map(i => (
+              {[0, 1, 2, 3].map(i => (
                 <div key={i} className="token-slot">
                   {/* Tokens rendered in Animated Layer now */}
                 </div>
@@ -182,35 +182,35 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
   const getTokenCoords = (color, position, slotIndex) => {
     if (position === -1) {
       const baseCoords = {
-        yellow: [{r: 1.5, c: 1.5}, {r: 1.5, c: 3.5}, {r: 3.5, c: 1.5}, {r: 3.5, c: 3.5}],
-        blue: [{r: 1.5, c: 10.5}, {r: 1.5, c: 12.5}, {r: 3.5, c: 10.5}, {r: 3.5, c: 12.5}],
-        red: [{r: 10.5, c: 10.5}, {r: 10.5, c: 12.5}, {r: 12.5, c: 10.5}, {r: 12.5, c: 12.5}],
-        green: [{r: 10.5, c: 1.5}, {r: 10.5, c: 3.5}, {r: 12.5, c: 1.5}, {r: 12.5, c: 3.5}],
+        yellow: [{ r: 1.5, c: 1.5 }, { r: 1.5, c: 3.5 }, { r: 3.5, c: 1.5 }, { r: 3.5, c: 3.5 }],
+        blue: [{ r: 1.5, c: 10.5 }, { r: 1.5, c: 12.5 }, { r: 3.5, c: 10.5 }, { r: 3.5, c: 12.5 }],
+        red: [{ r: 10.5, c: 10.5 }, { r: 10.5, c: 12.5 }, { r: 12.5, c: 10.5 }, { r: 12.5, c: 12.5 }],
+        green: [{ r: 10.5, c: 1.5 }, { r: 10.5, c: 3.5 }, { r: 12.5, c: 1.5 }, { r: 12.5, c: 3.5 }],
       };
       return baseCoords[color][slotIndex];
     }
-  
+
     if (position >= 0 && position <= 51) {
       return PATH_COORDS[position];
     }
-  
+
     const pathStarts = { yellow: 100, blue: 200, red: 300, green: 400 };
     const homePathIdx = position - pathStarts[color];
     if (homePathIdx >= 0 && homePathIdx < 5) {
       return HOME_PATHS[color][homePathIdx];
     }
-  
+
     if (homePathIdx === 5) {
       // Reached Home center
       const homeOffsets = {
-        yellow: {r: 6.5, c: 6.5},
-        blue: {r: 6.5, c: 8.5}, // Adjust blue center
-        red: {r: 8.5, c: 8.5},
-        green: {r: 8.5, c: 6.5}
+        yellow: { r: 6.5, c: 6.5 },
+        blue: { r: 6.5, c: 8.5 }, // Adjust blue center
+        red: { r: 8.5, c: 8.5 },
+        green: { r: 8.5, c: 6.5 }
       };
       return homeOffsets[color];
     }
-  
+
     // Fallback if something goes wrong, return to base to avoid crashing
     return getTokenCoords(color, -1, slotIndex);
   };
@@ -239,7 +239,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
       <div className="tokens-layer" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         {allTokens.map(token => {
           const { r, c } = getTokenCoords(token.color, token.position, token.slotIndex);
-          
+
           let offsetX = 0;
           let offsetY = 0;
           let scale = 1;
@@ -266,7 +266,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
           const canMove = isMyTurn && token.color === gameState.currentPlayer?.color;
 
           return (
-            <div 
+            <div
               key={token.id}
               onClick={canMove ? () => onMoveToken(token.id) : undefined}
               className={`pawn pawn-${token.color}`}
@@ -314,7 +314,7 @@ const Board = ({ gameState, onMoveToken, socketId, animationData, onAnimationCom
       </div>
       <style>{`
         .ludo-board-wrapper {
-          padding: 1.5rem;
+          padding: 0;
           display: inline-block;
           margin: 0 auto;
           background: #fff;

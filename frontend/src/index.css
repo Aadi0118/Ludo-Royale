@@ -227,7 +227,7 @@ body {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 100%) {
   :root {
     --cell-size: calc(100vw / 15);
   }
