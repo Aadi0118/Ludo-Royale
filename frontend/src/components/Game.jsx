@@ -173,8 +173,8 @@ const Game = () => {
   };
 
   return (
-    <div className="game-root">
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '1000px', marginBottom: '1rem', gap: '10px', padding: '0 10px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '10px', overflowX: 'hidden' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '1000px', marginBottom: '1rem', gap: '10px' }}>
         <h2 style={{ fontSize: '1.2rem', margin: 0 }}>Room: {gameState.roomId}</h2>
         
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
@@ -196,7 +196,7 @@ const Game = () => {
         {renderPlayerPanel('yellow', 'top-left')}
         {renderPlayerPanel('blue', 'top-right')}
         
-        <div className="board-container" style={{ zIndex: 5, width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <div className="board-container" style={{ zIndex: 5 }}>
           <Board 
             gameState={gameState} 
             onMoveToken={handleMoveToken} 
